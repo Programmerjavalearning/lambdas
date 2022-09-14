@@ -3,9 +3,13 @@
 public class Main {
     public static void main(String[] args) {
 
-        Drawable drawable = () -> System.out.println("Drawing lambda");
 
-        drawable.draw();
+        Addable addable = (a,b) -> (a+b);
+        System.out.println("Addable function return :" + addable.add(5,10));
+
+        Drawable drawable = (w,h) -> System.out.println("Drawing lambda width = " +w + " height = " + h );
+
+        drawable.draw(6,8);
 
         //Without a lambda
 
@@ -23,8 +27,13 @@ public class Main {
     }
 }
 
+interface Addable{
+    int add (int a, int b);
+}
+
 
 interface Drawable{
-    public void draw();
+    public void draw(int width,int height );
+
 
 }
