@@ -1,18 +1,29 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
 
-        List<String> nameList = new ArrayList<>();
-        nameList.add("Bonni");
-        nameList.add("Nico");
-        nameList.add("Tom");
-        nameList.add("Mati");
+        Speakable speakable = (message) -> {
+          String message1 = " Hello World";
+            String message2 = message + message1 + " Second message";
+            return message2;
+        };
+        System.out.println(speakable.speak("Here it goes"));
 
-        nameList.forEach(
-                (names) -> System.out.println(names)
-        );
+
+
+
+
+
+
+
+//        List<String> nameList = new ArrayList<>();
+//        nameList.add("Bonni");
+//        nameList.add("Nico");
+//        nameList.add("Tom");
+//        nameList.add("Mati");
+//
+//        nameList.forEach(
+//                (names) -> System.out.println(names)
+//        );
 
         // Same without lambda expression
 //        for (String name : nameList){
@@ -46,13 +57,17 @@ public class Main {
     }
 }
 
-//interface Addable{
-//    int add (int a, int b);
-//}
-//
-//
-//interface Drawable{
-//    public void draw(int width,int height );
-//
-//
-//}
+interface Speakable{
+    String speak(String message);
+}
+
+interface Addable{
+    int add (int a, int b);
+}
+
+
+interface Drawable{
+    public void draw(int width,int height );
+
+
+}
