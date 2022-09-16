@@ -1,7 +1,6 @@
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Stream;
 
 class Product {
     int id;
@@ -27,22 +26,44 @@ public class Main {
         list.add(new Product(5,"Book",10));
         list.add(new Product(6,"PC Gamer",1900));
 
-        System.out.println("Sorting from the name");
+        // Streams
 
-        Collections.sort(list, Comparator.comparing(p -> p.name));
+        System.out.println("Before Filter applied");
 
-        for (Product p : list){
-            System.out.println(p.id  + " " + p.name + "  "+ p.price);
-        }
+        list.forEach(
+                (product) -> System.out.println(product.name + " " + product.price)
+        );
 
-        System.out.println("===============================");
-        System.out.println("Sorting from the price");
+        System.out.println("==============");
 
-        Collections.sort(list, Comparator.comparing(p -> p.price));
+        Stream<Product> filteredData = list.stream().filter(
+                product -> product.price > 1000);
 
-        for (Product p : list){
-            System.out.println(p.id  + " " + p.name + "  "+ p.price);
-        }
+        System.out.println("After Filter applied");
+
+
+        filteredData.forEach(
+                (product) -> System.out.println(product.name + " " + product.price)
+        );
+
+
+
+//        System.out.println("Sorting from the name");
+//
+//        Collections.sort(list, Comparator.comparing(p -> p.name));
+//
+//        for (Product p : list){
+//            System.out.println(p.id  + " " + p.name + "  "+ p.price);
+//        }
+//
+//        System.out.println("===============================");
+//        System.out.println("Sorting from the price");
+//
+//        Collections.sort(list, Comparator.comparing(p -> p.price));
+//
+//        for (Product p : list){
+//            System.out.println(p.id  + " " + p.name + "  "+ p.price);
+//        }
 
 
 
