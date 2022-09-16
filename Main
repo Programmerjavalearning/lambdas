@@ -1,17 +1,66 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class Product {
+    int id;
+    String name;
+    float price;
+
+    public Product(int id, String name, float price) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+}
+
 public class Main {
     public static void main(String[] args) {
 
-        Speakable speakable = (message) -> {
-          String message1 = " Hello World";
-            String message2 = message + message1 + " Second message";
-            return message2;
-        };
-        System.out.println(speakable.speak("Here it goes"));
+        List<Product> list = new ArrayList<>();
+
+        // Add our products
+        list.add(new Product(1,"Banana",13));
+        list.add(new Product(2,"TV",900));
+        list.add(new Product(3,"Switch",500));
+        list.add(new Product(5,"Book",10));
+        list.add(new Product(6,"PC Gamer",1900));
+
+        System.out.println("Sorting from the name");
+
+        Collections.sort(list, Comparator.comparing(p -> p.name));
+
+        for (Product p : list){
+            System.out.println(p.id  + " " + p.name + "  "+ p.price);
+        }
+
+        System.out.println("===============================");
+        System.out.println("Sorting from the price");
+
+        Collections.sort(list, Comparator.comparing(p -> p.price));
+
+        for (Product p : list){
+            System.out.println(p.id  + " " + p.name + "  "+ p.price);
+        }
 
 
 
 
 
+
+
+
+
+
+
+
+//        Speakable speakable = (message) -> {
+//          String message1 = " Hello World";
+//            String message2 = message + message1 + " Second message";
+//            return message2;
+//        };
+//        System.out.println(speakable.speak("Here it goes"));
 
 
 
